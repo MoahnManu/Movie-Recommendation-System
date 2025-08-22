@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+<head>
+    <title>Movie Recommender</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #F8F9FA;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            padding: 20px 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #007BFF;
+            margin-bottom: 5px;
+        }
+        p {
+            color: #6C757D;
+            margin-bottom: 25px;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        input[type="number"] {
+            width: 100px;
+            padding: 8px 12px;
+            border: 1px solid #CED4DA;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        input[type="submit"] {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        h2 {
+            color: #343A40;
+            margin-top: 30px;
+            border-bottom: 2px solid #007BFF;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background-color: #E9ECEF;
+            margin: 8px 0;
+            padding: 12px 20px;
+            border-radius: 5px;
+            text-align: left;
+            font-size: 1.1em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Movie Recommendation System 🍿</h1>
+        <p>Enter a User ID (1 to 610) to get personalized movie recommendations.</p>
+        
+        <form method="post">
+            <label for="user_id">Enter User ID:</label>
+            <input type="number" id="user_id" name="user_id" min="1" max="610" required>
+            <input type="submit" value="Get Recommendations">
+        </form>
+        
+        {% if recommendations %}
+            <h2>Recommended Movies:</h2>
+            <ul>
+            {% for movie in recommendations %}
+                <li>{{ movie }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+</body>
+</html>
